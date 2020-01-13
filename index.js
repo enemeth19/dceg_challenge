@@ -1,32 +1,21 @@
-console.log('erika.js is starting');
+console.log('erika.js starting');
 
-// Checking if my API URL works to begin with
-let xhr = new XMLHttpRequest;
-xhr.open('GET', 'https://health.data.ny.gov/resource/gnzp-ekau.json?$$app_token=FwLXuOIVoXvCv7PRSwqJQ9NGJ&ccs_diagnosis_description=Cancer%20of%20prostate', true)
-    // open() allows a user to open a new window
-xhr.onload = function() {
-    // onload() is an event that occurs once an object has been loaded
-    if (this.status === 200)
-    {
-        console.log(JSON.parse(this.responseText));
+function getData(url) {
+    let response = '';
+    let xhr = new XMLHttpRequest(); // creating an XMLHTTPRequest
+    if(xhr != null) {
+        xhr.open('GET', url, false); // configuring the request
+        xhr.send(null); // sending the request to the server
+        response = xhr.responseText;
+        console.log(xhr.responseText)
     }
-}
-xhr.send();
-    // send() sends the request to the server
-    // if there is an error in the construction of our api, then we will be notified by an error, such as Error 400
-
-myURL = 'https://health.data.ny.gov/resource/gnzp-ekau.json?$$app_token=FwLXuOIVoXvCv7PRSwqJQ9NGJ&ccs_diagnosis_description=Cancer%20of%20prostate'
-
-async function lalaGet(placeholderForURL){
-    const dataRequest = await fetch(placeholderForURL);
-    const theData = await dataRequest.json();
-    const cleanData = theData.map(item=> ({
-        age: item.gender,
-        ethnicity: item.ethnicity
-    }))
-    return cleanData;
+    return response;
 }
 
-letsdothis = lalaGet(myURL)
+let myURL = getData('https://health.data.ny.gov/resource/gnzp-ekau.json?$$app_token=FwLXuOIVoXvCv7PRSwqJQ9NGJ&ccs_diagnosis_description=Cancer%20of%20prostate&$limit=5000')
+
+let myData = JSON.parse(myURL) // an array with all the data for patients with prostate cancer diagnoses
+
+console.log(JSON.parse(myURL))
 
 console.log('erika.js finished');
