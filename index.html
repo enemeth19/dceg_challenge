@@ -7,46 +7,27 @@
         <title>Disease Indicators of Cancer</title>
         <link href='https://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </head>
     
     <body>
 
-        <h1 id='title' style='color:blue'>Disease Indicators of Cancer</h1>
+        <div class="center-align">
+        <h2 id='title' style='color:blue'>Disease Indicators of Prostate Cancer</h2>
+        <h4 id='Erika Nemeth' style='color:black'>Erika Nemeth</h4>
+        </div>
         
         <div id='root'></div>
 
         <script src = 'https://cdn.plot.ly/plotly-latest.min.js'></script>
         <script src = 'index.js'></script>
 
-        <div id=div1></div>
+        <div id="hsahistogram"></div>
+        <script src = 'hsahistogram.js'></script>
 
-        <script>
-            const malePlot = {
-                dtt : [],
-                y : letsdothis.data.hits.map(x=>{
-                    // data() returns a JS object containing each stored value as a property
-                    // hits() returns a list of results
-                    // map() creates an array by calling a specific function on each element present in the parent array
-                    if(!dtt[x.ccs_diagnosis_description]){
-                        dtt[x.ccs_diagnosis_description]=0
-                    }
-                    dtt[x.ccs_diagnosis_description]+=1
-                })
-            }
-            // Here, we are instantiating dtt to be an array
-            // if the diagnosis name does not already exist in the array, then the count of that diagnosis is 0 (0-based indexing)
-            // if the diagnosis name does already exist in the array, then it will increment the total count of that diagnosis by 1f
-        </script>
-
-        <script>
-            let plotData = {
-                x: Object.keys(malePlot),
-                    // Object.keys() returns an array whose elements are strings corresponding to the numbered properties found in an object
-                y: Object.keys(malePlot).map(z=>malePlot[z]),
-                type: 'bar',
-            }
-            Plotly.newPlot('div1',plotData)
-        </script>
+        <div id="racehistogram"></div>
+        <script src = 'racehistogram.js'></script>
 
     </body>
     
