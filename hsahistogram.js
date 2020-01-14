@@ -12,10 +12,12 @@ function getHSAcounts(str, field) {
     const HSACount = [];
     for (var i = 0; i < myData.length; i++) {
         if (myData[i][field] == str) {                 
-            if (HSACount[myData[i].health_service_area] == null)
+            if (HSACount[myData[i].health_service_area] == null) {
                 HSACount[myData[i].health_service_area] = 1
-            else
+            }
+            else {
                 HSACount[myData[i].health_service_area] += 1
+            }
         }
     }
     return HSACount
@@ -33,14 +35,16 @@ function plotData(str, field) {
     return dataToPlot;
 }
 
-const getHSAhistogram = [plotData('Capital/Adirondack', 'health_service_area'),    
+const getHSAhistogram = [
+    plotData('Capital/Adirondack', 'health_service_area'),    
     plotData('Central NY', 'health_service_area'),
     plotData('Finger Lakes', 'health_service_area'),
     plotData('Hudson Valley', 'health_service_area'),
     plotData('Long Island', 'health_service_area'),
     plotData('New York City', 'health_service_area'),
     plotData('Southern Tier', 'health_service_area'),
-    plotData('Western NY', 'health_service_area')];
+    plotData('Western NY', 'health_service_area')
+];
 
 const layout2 = {
     title: 'Frequencies of Health Service Areas with Prostate Cancer Diagnoses',

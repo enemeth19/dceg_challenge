@@ -12,10 +12,12 @@ function getRaceCounts(str, field) {
     const raceCount = [];
     for (var i = 0; i < myData.length; i++) {
         if (myData[i][field] == str) {                 
-            if (raceCount[myData[i].race] == null)
+            if (raceCount[myData[i].race] == null) {
                 raceCount[myData[i].race] = 1
-            else
+            }
+            else {
                 raceCount[myData[i].race] += 1
+            }
         }
     }
     return raceCount
@@ -33,10 +35,12 @@ function plotData(str, field) {
     return dataToPlot;
 }
 
-const getHistogram = [plotData('Black/African American', 'race'), 
+const getHistogram = [
+    plotData('Black/African American', 'race'), 
     plotData('Multi-racial', 'race'),     
     plotData('Other Race', 'race'), // 'Other Race' includes Native Americans and Asian/Pacific Islander
-    plotData('White', 'race')];
+    plotData('White', 'race')
+];
 
 const layout = {
     title: 'Frequencies of Races in Prostate Cancer Diagnoses',
