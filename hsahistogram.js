@@ -46,7 +46,7 @@ const getHSAhistogram = [
     plotData('Western NY', 'health_service_area')
 ];
 
-const layout2 = {
+const HSAhistogramLayout = {
     title: 'Frequencies of Health Service Areas with Prostate Cancer Diagnoses',
     font: {
         family: 'Raleway, sans-serif'
@@ -62,4 +62,4 @@ const layout2 = {
     }
   };
 
-Plotly.newPlot('hsahistogram', getHSAhistogram, layout2);
+Plotly.newPlot('hsahistogram', getHSAhistogram, HSAhistogramLayout);

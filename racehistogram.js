@@ -42,7 +42,7 @@ const getHistogram = [
     plotData('White', 'race')
 ];
 
-const layout = {
+const raceHistogramLayout = {
     title: 'Frequencies of Races in Prostate Cancer Diagnoses',
     font: {
         family: 'Raleway, sans-serif'
@@ -58,4 +58,4 @@ const layout = {
     }
   };
 
-Plotly.newPlot('racehistogram', getHistogram, layout);
+Plotly.newPlot('racehistogram', raceHistogramLayout, layout);
