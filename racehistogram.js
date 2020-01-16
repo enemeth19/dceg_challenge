@@ -35,7 +35,7 @@ function plotData(str, field) {
     return dataToPlot;
 }
 
-const getHistogram = [
+const getRaceHistogram = [
     plotData('Black/African American', 'race'), 
     plotData('Multi-racial', 'race'),     
     plotData('Other Race', 'race'), // 'Other Race' includes Native Americans and Asian/Pacific Islander
@@ -58,4 +58,4 @@ const raceHistogramLayout = {
     }
   };
 
-Plotly.newPlot('racehistogram', raceHistogramLayout, layout);
+Plotly.newPlot('racehistogram', getRaceHistogram, raceHistogramLayout);
